@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<ul>
+    <li routerLinkActive="active"><a [routerLink]="['/demo1']">Demo1 - FormControl</a></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/demo2']">Demo2 - Http</a></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/demo3']">Demo3 - forkJoin</a></li>
+</ul>
+<hr>
+<h1>Demo Code</h1>
+<router-outlet></router-outlet>

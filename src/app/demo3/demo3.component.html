@@ -1,0 +1,13 @@
+<p>
+    主題: Observable.forkJoin
+    <br> 用途: 等同 angular 1.x 裡的 $q.all[]
+</p>
+<pre>
+ Observable.forkJoin(
+      this.http.get('http://jsonplaceholder.typicode.com/todos').map(res => res.json()),
+      this.http.get('https://jsonplaceholder.typicode.com/users').map(res=>res.json())
+    ).subscribe(
+      data => console.log(data),
+      err => console.error(err.message)
+      );
+</pre>

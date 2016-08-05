@@ -1,9 +1,21 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
-import { AppComponent, environment } from './app/';
+import { enableProdMode, provide, PLATFORM_DIRECTIVES } from '@angular/core';
+import { FORM_PROVIDERS } from '@angular/common';
+import { HTTP_PROVIDERS } from '@angular/http';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { AppComponent, environment,APP_ROUTER_PROVIDERS } from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [
+  APP_ROUTER_PROVIDERS,
+  FORM_PROVIDERS,
+  HTTP_PROVIDERS,
+  provide(PLATFORM_DIRECTIVES, {
+    useValue: [ROUTER_DIRECTIVES],
+    multi: true
+  }),
+  ROUTER_DIRECTIVES
+]);

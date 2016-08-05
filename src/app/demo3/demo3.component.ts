@@ -1,0 +1,26 @@
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
+
+@Component({
+  moduleId: module.id,
+  selector: 'app-demo3',
+  templateUrl: 'demo3.component.html',
+  styleUrls: ['demo3.component.css']
+})
+export class Demo3Component implements OnInit {
+
+  constructor(private http:Http) { }
+
+  ngOnInit() {
+    Observable.forkJoin(
+      this.http.get('http://jsonplaceholder.typicode.com/todos').map(res => res.json()),
+      this.http.get('https://jsonplaceholder.typicode.com/users').map(res=>res.json())
+    ).subscribe(
+      data => console.log(data),
+      err => console.error(err.message)
+      );
+  }
+
+}

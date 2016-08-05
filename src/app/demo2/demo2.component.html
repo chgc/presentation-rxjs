@@ -1,0 +1,22 @@
+<p>
+    主題: 基本 Observable with Angular Http
+</p>
+<p>
+    用途: 展示基本Observable的用法
+</p>
+<p>
+    Ａngular 2的http回傳的型別為Observable
+    < response>
+</p>
+<pre>
+    this.http.get('http://jsonplaceholder.typicode.com/todos')
+      .flatMap(res => {
+        return Observable.from(res.json())
+      })
+      .filter((todo: any) => todo.completed == true)
+      .toArray()
+      .subscribe(
+      data => console.log(data),
+      err => console.error(err.message)
+      );
+</pre>
