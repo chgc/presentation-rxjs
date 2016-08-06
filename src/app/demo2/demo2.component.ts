@@ -16,10 +16,7 @@ export class Demo2Component implements OnInit {
   constructor(private http: Http) { }
 
   getAsyncData() {
-    return this.http.get('http://jsonplaceholder.typicode.com/todos')
-      .flatMap(res => {
-        return Observable.from(res.json())
-      });
+    return this.http.get('http://jsonplaceholder.typicode.com/todos');
     // 
     // {
     //   "userId": 1,
@@ -39,11 +36,27 @@ export class Demo2Component implements OnInit {
 
     // console.log("=======Observable Below========");
 
+    /* Simple Way */
     this.getAsyncData()
-      .filter((todo: any) => todo.completed == true)
+      .map(res => res.json())
+      .map(data => {
+        return data.filter(todo => todo.completed == true)
+      })
+      .subscribe(
+      data => console.log('simple way:' + data),
+      err => console.error(err.message)
+      );
+    /* More Complex way */
+    this.getAsyncData()
+      .flatMap(res => {
+        return Observable.from(res.json());
+      })
+      .filter((todo: any) => {     
+        return todo.completed == true
+      })
       .toArray()
       .subscribe(
-      data => console.log(data),
+      data => console.log('complex way:' + data),
       err => console.error(err.message)
       );
   }

@@ -14,6 +14,7 @@ export class Demo3Component implements OnInit {
   constructor(private http:Http) { }
 
   ngOnInit() {
+    console.clear();
     Observable.forkJoin(
       this.http.get('http://jsonplaceholder.typicode.com/todos').map(res => res.json()),
       this.http.get('https://jsonplaceholder.typicode.com/users').map(res=>res.json())
