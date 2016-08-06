@@ -1,1 +1,9 @@
 <button>click me</button>
+<br>
+<form [formGroup]="loginForm">
+    <p>Login <input formControlName="login"></p>
+    <div formGroupName="passwordRetry">
+        <p>Password <input type="password" formControlName="password"></p>
+        <p>Confirm password <input type="password" formControlName="passwordConfirmation"></p>
+    </div>
+</form>
