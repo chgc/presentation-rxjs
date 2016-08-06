@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormBuilder, Validators, AsyncValidatorFn } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
@@ -13,8 +14,11 @@ import 'rxjs/Rx';
 export class Demo1Component implements OnInit {
 
   loginForm: FormGroup;
+  searchForm: FormGroup;
 
-  constructor(private builder: FormBuilder) { }
+  items = [];
+
+  constructor(private builder: FormBuilder, private http: Http) { }
 
   ngOnInit() {
     console.clear();
@@ -23,6 +27,7 @@ export class Demo1Component implements OnInit {
       .subscribe(() => console.log('Clicked!'));
 
     this.loginForm = this.builder.group({
+
       login: ["", Validators.required],
       passwordRetry: this.builder.group({
         password: ["", Validators.required],
@@ -40,12 +45,23 @@ export class Demo1Component implements OnInit {
     );
 
     /* Demo to show how ngControl work with subscribe */
-    this.loginForm.controls['login'].valueChanges
-    .debounceTime(400)
-    .subscribe(
-      value => console.log('login input value:' + value),
+    this.searchForm = this.builder.group({
+      search: [""]
+    });
+    this.searchForm.controls['search'].valueChanges
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .flatMap((term) => {
+        var url = 'https://api.spotify.com/v1/search?q=' + term + '&type=artist';
+        return this.http.get(url).map(res => res.json())
+          .map(data => data.artists.items);
+      })
+      .subscribe(
+      values => {
+        this.items = values;
+      },
       err => console.error(err.message)
-    );
+      );
 
   }
 }

@@ -1,9 +1,21 @@
+<h3>Simple Html Element Event with subscribe</h3>
 <button>click me</button>
 <br>
-<form [formGroup]="loginForm">
+<h3>FormGroup work with subscribe</h3>
+<form [formGroup]="loginForm">    
     <p>Login <input formControlName="login"></p>
     <div formGroupName="passwordRetry">
         <p>Password <input type="password" formControlName="password"></p>
         <p>Confirm password <input type="password" formControlName="passwordConfirmation"></p>
     </div>
 </form>
+<br>
+<h3>ngControl work with subscribe</h3>
+<form [formGroup]="searchForm">
+    <p>Search <input formControlName="search"></p>    
+</form>
+<ul>
+    <li *ngFor="let item of items">
+        {{ item | json }}
+    </li>
+</ul>
