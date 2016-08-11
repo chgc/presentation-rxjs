@@ -5,18 +5,17 @@
     用途: 展示基本Observable的用法
 </p>
 <p>
-    Ａngular 2的http回傳的型別為Observable
-    < response>
+    Ａngular 2的http回傳的型別為Observable &lt;response&gt;
 </p>
-<pre>   
-    <!--this.http.get('http://jsonplaceholder.typicode.com/todos')
-      .flatMap(res => {{
-        return Observable.from(res.json())
-      }})
+<pre>
+    <span>this.http.get('http://jsonplaceholder.typicode.com/todos')</span>
+      .flatMap(res => &#123;
+    <span> return Observable.from(res.json())</span>
+      &#125;)
       .filter((todo: any) => todo.completed == true)
       .toArray()
       .subscribe(
       data => console.log(data),
       err => console.error(err.message)
-      );      -->
+      );
 </pre>
