@@ -3,8 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
-@Component({
-  moduleId: module.id,
+@Component({  
   selector: 'app-demo3',
   templateUrl: 'demo3.component.html',
   styleUrls: ['demo3.component.css']

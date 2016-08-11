@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormBuilder, Validators, AsyncValidatorFn } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AsyncValidatorFn } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
-@Component({
-  moduleId: module.id,
+@Component({  
   selector: 'app-demo1',
   templateUrl: 'demo1.component.html',
-  styleUrls: ['demo1.component.css'],
-  directives: [REACTIVE_FORM_DIRECTIVES]
+  styleUrls: ['demo1.component.css']
 })
 export class Demo1Component implements OnInit {
 
