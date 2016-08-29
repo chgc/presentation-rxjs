@@ -2,6 +2,7 @@
     主題: Observable.forkJoin
     <br> 用途: 等同 angular 1.x 裡的 $q.all[]
 </p>
+<h2>RxJS style</h2>
 <pre>
  Observable.forkJoin(
       this.http.get('http://jsonplaceholder.typicode.com/todos').map(res => res.json()),
@@ -10,4 +11,14 @@
       data => console.log(data),
       err => console.error(err.message)
       );
+</pre>
+<h2>Promise style</h2>
+<pre>
+  <span>let p1 =  this.http.get('http://jsonplaceholder.typicode.com/todos').map</span>
+    <span>(res => res.json()).toPromise();</span>
+  let p2 = this.http.get('https://jsonplaceholder.typicode.com/users').map(res=>res.json()).toPromise();
+  
+  Promise.all([p1,p2]).then( values =>  &#123;
+    console.log(values);
+   &#125;)
 </pre>
