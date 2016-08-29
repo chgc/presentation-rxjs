@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators, AsyncValidatorFn } from '@angular/f
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
-@Component({  
+@Component({
   selector: 'app-demo1',
   templateUrl: 'demo1.component.html',
   styleUrls: ['demo1.component.css']
@@ -14,7 +14,7 @@ export class Demo1Component implements OnInit {
   loginForm: FormGroup;
   searchForm: FormGroup;
 
-  items = [];
+  items: any[] = [];
 
   constructor(private builder: FormBuilder, private http: Http) { }
 
@@ -55,7 +55,7 @@ export class Demo1Component implements OnInit {
           .map(data => data.artists.items);
       })
       .subscribe(
-      values => {
+      (values: any[]) => {
         this.items = values;
       },
       err => console.error(err.message)
