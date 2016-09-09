@@ -1,4 +1,4 @@
-# AngularJs Taiwan Group Meetup - 一次搞懂 RxJS 與 Observable
+# AngularJS User Group Taiwan - 一次搞懂 RxJS 與 Observable
 
 演示RxJS在Angular2裡扮演的腳色
 
