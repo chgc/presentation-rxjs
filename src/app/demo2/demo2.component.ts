@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
-@Component({  
+@Component({
   selector: 'app-demo2',
   templateUrl: 'demo2.component.html',
   styleUrls: ['demo2.component.css']
@@ -42,7 +42,7 @@ export class Demo2Component implements OnInit {
         return data.filter(todo => todo.completed == true)
       })
       .subscribe(
-      data => console.log('simple way:' + data),
+      data => console.log('simple way:' , data),
       err => console.error(err.message)
       );
     /* More Complex way */
@@ -50,12 +50,12 @@ export class Demo2Component implements OnInit {
       .flatMap(res => {
         return Observable.from(res.json());
       })
-      .filter((todo: any) => {     
+      .filter((todo: any) => {
         return todo.completed == true
       })
       .toArray()
       .subscribe(
-      data => console.log('complex way:' + data),
+      data => console.log('complex way:' , data),
       err => console.error(err.message)
       );
   }

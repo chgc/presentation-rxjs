@@ -8,13 +8,15 @@ import { routing } from './app.routes';
 import { Demo1Component } from './demo1';
 import { Demo2Component } from './demo2';
 import { Demo3Component } from './demo3';
+import { Demo4Component } from './demo4/demo4.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Demo1Component,
     Demo2Component,
-    Demo3Component
+    Demo3Component,
+    Demo4Component
   ],
   imports: [
     BrowserModule,
