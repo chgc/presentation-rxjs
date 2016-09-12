@@ -16,7 +16,8 @@ export class Demo4Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub1.unsubscribe();
+    if (this.sub1)
+      this.sub1.unsubscribe();
   }
 
   getAsyncData() {

@@ -9,6 +9,7 @@ import { Demo1Component } from './demo1';
 import { Demo2Component } from './demo2';
 import { Demo3Component } from './demo3';
 import { Demo4Component } from './demo4/demo4.component';
+import { Demo5Component } from './demo5/demo5.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,15 @@ import { Demo4Component } from './demo4/demo4.component';
     Demo1Component,
     Demo2Component,
     Demo3Component,
-    Demo4Component
+    Demo4Component,
+    Demo5Component
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpModule,
-    ReactiveFormsModule ,
-    routing,    
+    ReactiveFormsModule,
+    routing
   ],
   providers: [],
   entryComponents: [AppComponent],
