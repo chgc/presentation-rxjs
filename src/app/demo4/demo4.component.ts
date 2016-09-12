@@ -22,7 +22,7 @@ export class Demo4Component implements OnInit, OnDestroy {
   getAsyncData() {
     const observable$ = this.http.get('http://jsonplaceholder.typicode.com/todos')
       .map(res => res.json()).share();
-    
+
     observable$.subscribe(() => {
       console.info('log from getAsyncData');
     });
@@ -36,5 +36,17 @@ export class Demo4Component implements OnInit, OnDestroy {
       data => console.log('action1'),
       err => console.error(err.message)
     );
+  }
+
+  cancelRequest() {
+    var observable = this.http.get('http://jsonplaceholder.typicode.com/todos');
+
+    var subscription = observable.subscribe(res => {
+      console.log('The response is received.');
+    });
+
+    setTimeout(() => {
+      subscription.unsubscribe();
+    }, 50);
   }
 }
