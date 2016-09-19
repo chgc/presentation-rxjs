@@ -28,7 +28,6 @@ import { Demo5Component } from './demo5/demo5.component';
     routing
   ],
   providers: [],
-  entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
