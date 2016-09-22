@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { map } from 'rxjs/operator/map';
+import 'rxjs/Rx';
 
 declare var Promise: any;
 
@@ -28,7 +28,7 @@ export class Demo3Component implements OnInit {
     let p2 = this.http.get('https://jsonplaceholder.typicode.com/users').map(res => res.json()).toPromise();
 
     Promise.all([p1, p2]).then(values => {
-      console.log('Promise', values);
+      console.log('Promise',values);
     })
   }
 

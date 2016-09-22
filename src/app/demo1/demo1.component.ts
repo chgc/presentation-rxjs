@@ -3,10 +3,7 @@ import { Http } from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, Validators, AsyncValidatorFn } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { Observable } from 'rxjs/Rx';
-import { debounceTime } from 'rxjs/operator/debounceTime';
-import { distinctUntilChanged } from 'rxjs/operator/distinctUntilChanged';
-import { mergeMap } from 'rxjs/operator/mergeMap';
-import { map } from 'rxjs/operator/map';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-demo1',
