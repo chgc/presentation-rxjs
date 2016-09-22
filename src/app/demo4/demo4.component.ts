@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable, Subscription } from 'rxjs/Rx';
-import 'rxjs/Rx';
+import { map } from 'rxjs/operator/map';
 
 @Component({
   selector: 'app-demo4',

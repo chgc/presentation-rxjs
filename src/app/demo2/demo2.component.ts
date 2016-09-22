@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/Rx';
+import { mergeMap } from 'rxjs/operator/mergeMap';
+import { map } from 'rxjs/operator/map';
+import { filter } from 'rxjs/operator/filter';
+
 
 @Component({
   selector: 'app-demo2',
