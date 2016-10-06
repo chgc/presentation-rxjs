@@ -16,27 +16,6 @@ export class Demo4Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.sub1)
-      this.sub1.unsubscribe();
-  }
-
-  getAsyncData() {
-    const observable$ = this.http.get('http://jsonplaceholder.typicode.com/todos')
-      .map(res => res.json()).share();
-
-    observable$.subscribe(() => {
-      console.info('log from getAsyncData');
-    });
-
-    return observable$;
-  }
-
-  sub1: Subscription;
-  getData() {
-    this.sub1 = this.getAsyncData().subscribe(
-      data => console.log('action1'),
-      err => console.error(err.message)
-    );
   }
 
   cancelRequest() {
