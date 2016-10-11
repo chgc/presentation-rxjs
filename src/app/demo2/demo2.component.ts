@@ -14,7 +14,7 @@ export class Demo2Component implements OnInit {
 
   constructor(private http: Http) { }
 
-  getAsyncData() {
+  getAsyncData(): Observable<any> {
     return this.http.get('http://jsonplaceholder.typicode.com/todos');
     // 
     // {

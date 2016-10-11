@@ -25,24 +25,25 @@ export class Demo1Component implements OnInit {
     Observable.fromEvent(button, 'click')
       .subscribe(() => console.log('Clicked!'));
 
-    
-    /* Demo to show how FormGroup work with subscribe */
-    let password = new FormControl('', Validators.required);
-    let passwordConfirmation = new FormControl('', [Validators.required, CustomValidators.equalTo(password)]);
-    this.loginForm = this.builder.group({
 
-      login: ["", Validators.required],
-      passwordRetry: this.builder.group({
+    /* Demo to show how FormGroup work with subscribe */
+    let login = new FormControl('', Validators.required);
+    let password = new FormControl('', Validators.required);
+    let passwordConfirmation = new FormControl('');
+
+    this.loginForm = new FormGroup({
+      login: login,
+      passwordRetry: new FormGroup({
         password: password,
         passwordConfirmation: passwordConfirmation
-      })
+      }, CustomValidators.equalTo)
     });
-    
+
     this.loginForm.valueChanges.subscribe(
       value => console.log(value),
       err => console.error(err.message)
     );
-    
+
     this.loginForm.statusChanges.subscribe(
       value => console.log('state:' + value),
       err => console.error(err.message)

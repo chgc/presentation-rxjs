@@ -1,3 +1,5 @@
+import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Demo1Component } from './demo1';
@@ -17,4 +19,10 @@ export const routes: Routes = [
     redirectTo: 'demo1'    
   }
 ];
-export const routing = RouterModule.forRoot(routes);
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  providers: []
+})
+export class AppRoutingModule { }
